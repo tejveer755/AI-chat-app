@@ -1,11 +1,11 @@
 import React, { useState } from 'react';
-import {  ScrollView, StyleSheet, SafeAreaView, Alert } from 'react-native';
+import { ScrollView, StyleSheet, SafeAreaView, Alert, Text } from 'react-native';
 import Header from '@/components/Header';
 import IntroSection from '@/components/IntroSection';
 import Chat from '@/components/Chat';
 import { generateAIResponse } from '@/api/index';
 import InputSection from '@/components/InputSection';
-import ChatLoadingSkeleton from '@/components/ChatLoadingSkeleton';
+import * as Clipboard from 'expo-clipboard';
 
 // Define types for clarity and type safety
 type Message = {
@@ -50,6 +50,7 @@ const ChatBotApp: React.FC = () => {
 
   return (
     <SafeAreaView style={styles.container}>
+
       <Header />
       {chat.length === 0 ? (
         <ScrollView contentContainerStyle={styles.introContainer}>
@@ -58,7 +59,7 @@ const ChatBotApp: React.FC = () => {
       ) : (
         <Chat messages={chat} isLoading={isLoading} />
       )}
-      {/* <ChatLoadingSkeleton/> */}
+
       <InputSection
         message={message}
         setMessage={setMessage}

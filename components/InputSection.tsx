@@ -6,6 +6,7 @@ import {
   StyleSheet,
   KeyboardAvoidingView,
   Platform,
+  Text,
 } from 'react-native';
 import { MaterialIcons } from '@expo/vector-icons';
 
@@ -32,6 +33,7 @@ const InputSection: React.FC<InputAreaProps> = ({
       style={styles.inputAreaWrapper}
     >
       <View style={styles.inputArea}>
+        {/* Multi-line Text Input */}
         <TextInput
           style={styles.textInput}
           placeholder="Type your message..."
@@ -39,6 +41,10 @@ const InputSection: React.FC<InputAreaProps> = ({
           value={message}
           onChangeText={handleChange}
           editable={!recording}
+          multiline={true} // Enable multi-line input
+          numberOfLines={3} // Sets initial height
+          
+          textAlignVertical="top" // Align text at the top
         />
 
         {recording ? (
@@ -67,10 +73,11 @@ const styles = StyleSheet.create({
   inputAreaWrapper: {
     marginVertical: 8,
     marginHorizontal: 8,
+    
   },
   inputArea: {
     flexDirection: 'row',
-    alignItems: 'center',
+    alignItems: 'center', // Align items to start to accommodate multiline
     padding: 12,
     backgroundColor: '#1f1f1f',
     borderRadius: 24,
@@ -78,6 +85,7 @@ const styles = StyleSheet.create({
     shadowOpacity: 0.2,
     shadowOffset: { width: 0, height: 2 },
     shadowRadius: 4,
+    minHeight: 80, // Adjust the minimum height for multiline input
   },
   textInput: {
     flex: 1,
@@ -88,6 +96,8 @@ const styles = StyleSheet.create({
     borderRadius: 24,
     marginRight: 8,
     fontSize: 18,
+    maxHeight: 150, // Set a maximum height for the TextInput
+    textAlignVertical: 'top', // Ensures the text is aligned to the top of the input field
   },
   sendButton: {
     backgroundColor: '#3e3e3e',
