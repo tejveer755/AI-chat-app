@@ -6,7 +6,7 @@ import { Ionicons } from '@expo/vector-icons';
 const Header: React.FC = () => (
   <View style={styles.header}>
     <Ionicons name="chatbubble-ellipses-outline" size={28} color="#ffffff" />
-    <Text style={styles.appTitle}>AI Chat Assistant</Text>
+    <Text style={styles.appTitle}>ChitChat</Text>
   </View>
 );
 

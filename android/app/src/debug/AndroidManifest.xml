@@ -1,0 +1,22 @@
+<manifest xmlns:android="http://schemas.android.com/apk/res/android" xmlns:tools="http://schemas.android.com/tools">
+
+  <!-- Microphone Permission -->
+  <uses-permission android:name="android.permission.RECORD_AUDIO" />
+
+  <!-- Permission to Use the Device Speaker -->
+  <uses-permission android:name="android.permission.MODIFY_AUDIO_SETTINGS" />
+
+  <!-- Allow Internet Access (if needed for speech recognition) -->
+  <uses-permission android:name="android.permission.INTERNET" />
+
+  <!-- Allow App to Keep Running in the Background (Optional) -->
+  <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
+
+  <!-- Needed for Speech Recognition API -->
+  <uses-permission android:name="android.permission.BLUETOOTH" />
+  <uses-permission android:name="android.permission.BLUETOOTH_ADMIN" />
+
+  <application android:usesCleartextTraffic="true" tools:targetApi="28" tools:ignore="GoogleAppIndexingWarning" tools:replace="android:usesCleartextTraffic">
+  </application>
+
+</manifest>

@@ -1,21 +1,45 @@
-import React from 'react';
-import { View, StyleSheet, Animated } from 'react-native';
+import React, { useEffect, useRef, useState } from 'react';
+import { View, Text, Animated, StyleSheet } from 'react-native';
 
-const ChatLoadingSkeleton = () => {
-  const shimmerOpacity = new Animated.Value(0.3);
+const TypingLoader = () => {
+  const [dots, setDots] = useState('');
+  const scaleAnim = useRef(new Animated.Value(1)).current;
+  const opacityAnim = useRef(new Animated.Value(1)).current;
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setDots(prevDots => (prevDots.length < 5 ? prevDots + '.' : ''));
+    }, 500);
+    return () => clearInterval(interval);
+  }, []);
 
-  // Animation effect for shimmer
-  React.useEffect(() => {
+  useEffect(() => {
+    // Loop for scaling animation
     Animated.loop(
       Animated.sequence([
-        Animated.timing(shimmerOpacity, {
-          toValue: 1,
-          duration: 800,
+        Animated.timing(scaleAnim, {
+          toValue: 2,
+          duration: 600,
           useNativeDriver: true,
         }),
-        Animated.timing(shimmerOpacity, {
-          toValue: 0.3,
-          duration: 800,
+        Animated.timing(scaleAnim, {
+          toValue: 1,
+          duration: 700,
+          useNativeDriver: true,
+        }),
+      ])
+    ).start();
+
+    // Loop for opacity animation
+    Animated.loop(
+      Animated.sequence([
+        Animated.timing(opacityAnim, {
+          toValue: 0.5,
+          duration: 300,
+          useNativeDriver: true,
+        }),
+        Animated.timing(opacityAnim, {
+          toValue: 1,
+          duration: 300,
           useNativeDriver: true,
         }),
       ])
@@ -24,24 +48,8 @@ const ChatLoadingSkeleton = () => {
 
   return (
     <View style={styles.container}>
-      <View style={styles.messageContainer}>
-        <Animated.View
-          style={[styles.messageBubble, { opacity: shimmerOpacity, width: '80%' }]}
-        />
-        <Animated.View
-          style={[styles.messageBubble,  { opacity: shimmerOpacity , width: '40%'}]}
-        />
-        <Animated.View
-          style={[styles.messageBubble, { opacity: shimmerOpacity , width: '66%'}]}
-        />
-        <Animated.View
-          style={[styles.messageBubble,  { opacity: shimmerOpacity , width: '50%'}]}
-        />
-        <Animated.View
-          style={[styles.messageBubble, { opacity: shimmerOpacity , width: '60%'}]}
-        />
-       
-      </View>
+      <Animated.View style={[styles.dot, { transform: [{ scale: scaleAnim }], opacity: opacityAnim }]} />
+      <Text style={styles.text}>Generating response{dots}</Text>
     </View>
   );
 };
@@ -50,28 +58,23 @@ const styles = StyleSheet.create({
   container: {
     flexDirection: 'row',
     alignItems: 'center',
-    marginBottom: 16,
     padding: 10,
-    backgroundColor: '#2a2a2a',
-    borderRadius: 20,
-    width: '75%',
+    borderRadius: 10,
     alignSelf: 'flex-start',
+    margin: 5,
+    marginHorizontal: 0
   },
-  
-  messageContainer: {
-    flex: 1,
-    paddingLeft: 10,
+  dot: {
+    width: 10,
+    height: 10,
+    borderRadius: 5,
+    backgroundColor: '#e1dede',
+    marginRight: 15,
   },
-  messageBubble: {
-    backgroundColor: '#515050',
-    height: 14,
-    borderRadius: 7,
-    marginBottom: 6,
+  text: {
+    fontSize: 14,
+    color: '#e1dede',
   },
-  shortBubble: {
-    width: '40%',
-  },
-
 });
 
-export default ChatLoadingSkeleton;
+export default TypingLoader;

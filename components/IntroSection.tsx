@@ -48,6 +48,7 @@ const styles = StyleSheet.create({
         fontSize: 26,
         fontWeight: '800',
         marginBottom: 8,
+        textAlign:'center',
     },
     heroDescription: {
         color: '#cccccc',
