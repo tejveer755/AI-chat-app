@@ -1,50 +1,81 @@
-# Welcome to your Expo app 👋
+# ChatMate - AI Chat Application 🤖💬
 
-This is an [Expo](https://expo.dev) project created with [`create-expo-app`](https://www.npmjs.com/package/create-expo-app).
+Welcome to **ChatMate**, an AI-powered chat application built with **React Native & Expo**, leveraging the **Google Gemini API** to provide smart, context-aware conversations. 
 
-## Get started
+## 🚀 Features
 
-1. Install dependencies
+✅ **Works on All Platforms** – Android 📱, iOS 🍏, and Web 🌐  
+✅ **Text & Voice Input** – Chat naturally using text or speech 🎙️  
+✅ **AI-Powered Responses** – Intelligent conversations powered by Google Gemini 💡  
+✅ **AI Voice Output** – ChatMate speaks back to you for a seamless experience 🔊  
+✅ **Context Awareness** – Remembers previous chats for a natural flow 🧠  
 
+## 📦 Installation
+
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/tejveer755/AI-chat-app.git
+   cd chatmate
+   ```
+
+2. Install dependencies:
    ```bash
    npm install
    ```
 
-2. Start the app
-
+3. Start the app:
    ```bash
-    npx expo start
+   npx expo start
    ```
 
-In the output, you'll find options to open the app in a
-
-- [development build](https://docs.expo.dev/develop/development-builds/introduction/)
+You'll see options to open the app in a:
+- [Development build](https://docs.expo.dev/develop/development-builds/introduction/)
 - [Android emulator](https://docs.expo.dev/workflow/android-studio-emulator/)
 - [iOS simulator](https://docs.expo.dev/workflow/ios-simulator/)
-- [Expo Go](https://expo.dev/go), a limited sandbox for trying out app development with Expo
+- [Expo Go](https://expo.dev/go) for quick testing
 
-You can start developing by editing the files inside the **app** directory. This project uses [file-based routing](https://docs.expo.dev/router/introduction).
+## 🛠️ Technologies Used
 
-## Get a fresh project
+- **React Native & Expo** – Cross-platform mobile & web app development
+- **Google Gemini API** – AI-driven conversations
+- **expo-speech** – AI voice output
+- **expo-speech-recognition** – Converts speech to text
 
-When you're ready, run:
 
+## ⚠️ Important Note
+
+This project uses the **expo-speech-recognition** library to convert speech to text. Additionally, this project contains **Swift and Kotlin code**, meaning **you cannot use it in the Expo Go app**. The Expo Go app is pre-compiled with select packages for the specific Expo version.
+
+To run your app properly, you need to compile your own **development client** by running:
 ```bash
-npm run reset-project
+npx expo run:android 
+# or
+npx expo run:ios
 ```
+You should see your app's name and icon on the launcher instead of "Expo Go." Do **not** open Expo Go; instead, open your compiled app.
 
-This command will move the starter code to the **app-example** directory and create a blank **app** directory where you can start developing.
+## 🌍 Deployment
 
-## Learn more
+To deploy the app, use Expo EAS:
+```bash
+eas build --platform all
+```
+For more details, follow the [EAS Build Guide](https://docs.expo.dev/build/introduction/).
 
-To learn more about developing your project with Expo, look at the following resources:
+## 💡 Contributing
 
-- [Expo documentation](https://docs.expo.dev/): Learn fundamentals, or go into advanced topics with our [guides](https://docs.expo.dev/guides).
-- [Learn Expo tutorial](https://docs.expo.dev/tutorial/introduction/): Follow a step-by-step tutorial where you'll create a project that runs on Android, iOS, and the web.
+We welcome contributions! Feel free to submit issues, feature requests, or pull requests. 
 
-## Join the community
+## 📜 License
 
-Join our community of developers creating universal apps.
+This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
 
-- [Expo on GitHub](https://github.com/expo/expo): View our open source platform and contribute.
-- [Discord community](https://chat.expo.dev): Chat with Expo users and ask questions.
+## 🔗 Connect
+
+Have feedback or ideas? Let's connect! 🚀  
+GitHub: [ChatMate Repository](<https://github.com/tejveer755/AI-chat-app.git>)  
+LinkedIn: [Your LinkedIn Profile](<[your-linkedin-profile-url](https://www.linkedin.com/in/tejveer-singh-3133a7323/)>)  
+
+---
+
+Let me know if you need any modifications! 😊
